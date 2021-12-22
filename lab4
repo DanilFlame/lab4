@@ -1,0 +1,74 @@
+using System;
+
+namespace ConsoleApp11
+{
+    class Person
+    {
+        protected string FirstName { get; set; }
+        protected string LastName { get; set; }
+        public Person(string fName, string lName)
+        {
+            FirstName = fName;
+            LastName = lName;
+        }
+        public void Display()
+        {
+            Console.WriteLine(FirstName + " " + LastName);
+        }
+    }
+    class Clerk : Person
+    {
+        protected string Company { get; set; }
+        public Clerk(string fName, string lName, string comp)
+        : base(fName, lName)
+        {
+            Company = comp;
+        }
+    }
+
+    class Worker
+    {
+        protected string FirstName { get; set; }
+        protected string LastName { get; set; }
+        public Worker(string fName, string lName)
+        {
+            FirstName = fName;
+            LastName = lName;
+        }
+        public void Display()
+        {
+            Console.WriteLine(FirstName + " " + LastName);
+        }
+    }
+
+    class Engineer : Worker
+    {
+        protected string Company { get; set; }
+        public Engineer(string fName, string lName, string comp)
+        : base(fName, lName)
+        {
+            Company = comp;
+        }
+    }
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Person p = new Person("Bill", "Gates");
+            p.Display();
+            Clerk cl = new Clerk("Tom", "Simpson", "Microsoft");
+            cl.Display();
+            Worker w = new Worker("Will", "Smith");
+            w.Display();
+            Engineer eng = new Engineer("May", "White", "Steam");
+            eng.Display();
+            Console.Read();
+        }
+
+    }
+
+}
+
+
