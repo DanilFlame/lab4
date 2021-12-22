@@ -14,40 +14,40 @@ namespace ConsoleApp11
         public void Display()
         {
             Console.WriteLine(FirstName + " " + LastName);
+            Console.WriteLine("-------------------------");
         }
     }
     class Clerk : Person
     {
-        protected string Company { get; set; }
-        public Clerk(string fName, string lName, string comp)
+        protected string Payment { get; set; }
+        public Clerk(string fName, string lName, string pay)
         : base(fName, lName)
         {
-            Company = comp;
+            Payment = pay;
+            Console.WriteLine("Payment: " +Payment);
+        }
+
+    }
+
+    class Worker : Person
+    {
+        protected string Experience { get; set; }
+        public Worker(string fName, string lName, string exp)
+        : base(fName, lName)
+        {
+            Experience = exp;
+            Console.WriteLine("Experience:" + Experience);
         }
     }
 
-    class Worker
+    class Engineer : Person
     {
-        protected string FirstName { get; set; }
-        protected string LastName { get; set; }
-        public Worker(string fName, string lName)
-        {
-            FirstName = fName;
-            LastName = lName;
-        }
-        public void Display()
-        {
-            Console.WriteLine(FirstName + " " + LastName);
-        }
-    }
-
-    class Engineer : Worker
-    {
-        protected string Company { get; set; }
-        public Engineer(string fName, string lName, string comp)
+        protected string Specialization { get; set; }
+        public Engineer(string fName, string lName, string sp)
         : base(fName, lName)
         {
-            Company = comp;
+            Specialization = sp;
+            Console.WriteLine("Specialization: "+Specialization);
         }
     }
 
@@ -58,11 +58,11 @@ namespace ConsoleApp11
         {
             Person p = new Person("Bill", "Gates");
             p.Display();
-            Clerk cl = new Clerk("Tom", "Simpson", "Microsoft");
+            Clerk cl = new Clerk("Tom", "Simpson", "300$");
             cl.Display();
-            Worker w = new Worker("Will", "Smith");
+            Worker w = new Worker("Will", "Smith", "3 years");
             w.Display();
-            Engineer eng = new Engineer("May", "White", "Steam");
+            Engineer eng = new Engineer("May", "White", "Database");
             eng.Display();
             Console.Read();
         }
@@ -70,5 +70,3 @@ namespace ConsoleApp11
     }
 
 }
-
-
